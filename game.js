@@ -16,8 +16,10 @@ class Game {
   switchTurns() {
     if (this.turn === player1) {
       this.turn = player2;
+      playerTurn.innerText = `It's ${this.turn.token} turn!`
     } else {
       this.turn = player1;
+      playerTurn.innerText = `It's ${this.turn.token} turn!`
     }
   }
   // makeMove() {
