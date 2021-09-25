@@ -22,13 +22,4 @@ class Game {
       playerTurn.innerText = `It's ${this.turn.token} turn!`
     }
   }
-  // makeMove() {
-  //   for (var i = 0; i < this.boardSections.length; i++) {
-  //     this.boardSections[i] = this.turn.token;
-  //     this.switchTurns();
-  //     if (this.boardSections[i]) {
-  //       return;
-  //     }
-  //   }
-  // }
 };
