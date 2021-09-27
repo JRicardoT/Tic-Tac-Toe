@@ -28,8 +28,11 @@ function showTurn() {
 
 function addToken() {
   var sectionClicked = event.target;
+  var sectionClickedId = parseInt(event.target.id);
   if (sectionClicked.innerText === '') {
-    sectionClicked.innerText = `${currentGame.turn.token}`
+    sectionClicked.innerText = `${currentGame.turn.token}`;
+    currentGame.updateBoardSections(sectionClickedId);
     currentGame.switchTurns();
+    showTurn();
   }
 };
