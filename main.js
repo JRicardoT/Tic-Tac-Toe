@@ -10,6 +10,7 @@ console.log(sections)
 window.addEventListener('load', function() {
   startNewGame();
   showTurn();
+  displayWins();
 });
 boardContainer.addEventListener('click', addToken);
 // Event Handlers
