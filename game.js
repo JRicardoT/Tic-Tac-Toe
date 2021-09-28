@@ -15,10 +15,12 @@ class Game {
       this.turn = player1;
     }
   }
+
   updateBoardSections(sectionClickedId) {
     this.boardSections[sectionClickedId] = this.turn.token;
     this.turnCounter += 1;
   }
+
   checkForWinConditions(boardSections, token) {
     if (
       boardSections[0] === token && boardSections[1] === token && boardSections[2] === token ||
@@ -35,6 +37,7 @@ class Game {
       return false;
     }
   }
+
   checkForWinner() {
     for (var i = 0; i < this.boardSections.length; i++) {
       var player1 = this.checkForWinConditions(this.boardSections, this.player1.token);
@@ -52,6 +55,7 @@ class Game {
       return false;
     }
   }
+
   checkForDraw() {
     if (currentGame.turnCounter === 9 && !this.checkForWinner()) {
       this.draw = true;
