@@ -61,12 +61,23 @@ function displayWins() {
   player2wins.innerText = currentGame.player2.retrieveWinsFromStorage();
 };
 
+function declareDraw() {
+  if (currentGame.draw) {
+    winner.innerText = 'It\s a draw!';
+    hide(playerTurn);
+    show(winner);
+    setTimeout(resetBoard, 1500);
+  }
+};
+
 function resetBoard() {
   for (var i = 0; i < sections.length; i++) {
     sections[i].innerText = '';
   }
   currentGame.player1.winner = false;
   currentGame.player2.winner = false;
+  currentGame.turnCounter = 0
+  currentGame.draw = false;
   currentGame.boardSections = ['', '', '', '', '', '', '', '', ''];
   hide(winner);
   show(playerTurn);
