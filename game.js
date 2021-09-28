@@ -4,6 +4,7 @@ class Game {
     this.player2 = player2;
     this.turn = player1;
     this.draw = false;
+    this.turnCounter = 0
     this.boardSections = ['', '', '', '', '', '', '', '', ''];
   }
 
@@ -16,7 +17,7 @@ class Game {
   }
   updateBoardSections(sectionClickedId) {
     this.boardSections[sectionClickedId] = this.turn.token;
-    console.log(this.boardSections);
+    this.turnCounter += 1;
   }
   checkForWinConditions(boardSections, token) {
     if (
@@ -41,18 +42,19 @@ class Game {
     }
     if (player1) {
       this.player1.winner = true;
-      console.log('PLayer1 wins;',this.player1.winner)
       this.player1.wins += 1;
-      console.log('Player 1 #wins;',this.player1.wins)
       return true;
     } else if (player2) {
       this.player2.winner = true;
-      console.log('PLayer2 wins;', this.player2.winner)
       this.player2.wins += 1;
-      console.log('Player 2 #wins;', this.player2.wins)
       return true;
     } else {
       return false;
+    }
+  }
+  checkForDraw() {
+    if (currentGame.turnCounter === 9 && !this.checkForWinner()) {
+      this.draw = true;
     }
   }
 };
