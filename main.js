@@ -6,10 +6,11 @@ var player1Wins = document.getElementById('player1Wins');
 var player2wins = document.getElementById('player2wins');
 var sections = document.querySelectorAll('.board');
 // Event Listeners
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   startNewGame();
   showTurn();
-  displayWins();
+  // You don't need to call this in a load state. Apps works fine still.
+  // displayWins();
 });
 boardContainer.addEventListener('click', addToken);
 // Event Handlers
