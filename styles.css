@@ -1,4 +1,4 @@
-/* Don't do this. HTML does not head any styling at all
+/* Don't do this. Don't target `html` it does not need any styling
 Instead give your body { } section a view height of 100 */
 /* html {
   height: 100%;
