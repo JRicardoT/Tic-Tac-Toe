@@ -4,13 +4,8 @@ class Game {
     this.player2 = player2;
     this.turn = player1;
     this.draw = false;
-    this.boardSections = ['', '', '', '', '', '', '', ''];
-    this.winConditions = [
-      [0, 1, 2], [3, 4, 5],
-      [6, 7, 8], [0, 4, 8],
-      [2, 4, 6], [0, 3, 6],
-      [1, 4, 7], [2, 5, 8]
-    ];
+    this.turnCounter = 0
+    this.boardSections = ['', '', '', '', '', '', '', '', ''];
   }
 
   switchTurns() {
@@ -20,13 +15,46 @@ class Game {
       this.turn = player1;
     }
   }
-  // makeMove() {
-  //   for (var i = 0; i < this.boardSections.length; i++) {
-  //     this.boardSections[i] = this.turn.token;
-  //     this.switchTurns();
-  //     if (this.boardSections[i]) {
-  //       return;
-  //     }
-  //   }
-  // }
+  updateBoardSections(sectionClickedId) {
+    this.boardSections[sectionClickedId] = this.turn.token;
+    this.turnCounter += 1;
+  }
+  checkForWinConditions(boardSections, token) {
+    if (
+      boardSections[0] === token && boardSections[1] === token && boardSections[2] === token ||
+      boardSections[3] === token && boardSections[4] === token && boardSections[5] === token ||
+      boardSections[6] === token && boardSections[7] === token && boardSections[8] === token ||
+      boardSections[0] === token && boardSections[3] === token && boardSections[6] === token ||
+      boardSections[1] === token && boardSections[4] === token && boardSections[7] === token ||
+      boardSections[2] === token && boardSections[5] === token && boardSections[8] === token ||
+      boardSections[0] === token && boardSections[4] === token && boardSections[8] === token ||
+      boardSections[2] === token && boardSections[4] === token && boardSections[6] === token
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  checkForWinner() {
+    for (var i = 0; i < this.boardSections.length; i++) {
+      var player1 = this.checkForWinConditions(this.boardSections, this.player1.token);
+      var player2 = this.checkForWinConditions(this.boardSections, this.player2.token);
+    }
+    if (player1) {
+      this.player1.winner = true;
+      this.player1.wins += 1;
+      return true;
+    } else if (player2) {
+      this.player2.winner = true;
+      this.player2.wins += 1;
+      return true;
+    } else {
+      return false;
+    }
+  }
+  checkForDraw() {
+    if (currentGame.turnCounter === 9 && !this.checkForWinner()) {
+      this.draw = true;
+    }
+  }
 };

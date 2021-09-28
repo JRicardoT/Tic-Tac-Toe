@@ -55,6 +55,7 @@ p {
 
 .board {
   display: flex;
+  font-size: 150px;
   height: 100%;
   justify-content: center;
   cursor: pointer;
@@ -76,7 +77,3 @@ p {
 .hidden {
   display: none;
 }
-
-/* .unavailable {
-  pointer-events: none;
-} */
