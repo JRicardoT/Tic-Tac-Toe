@@ -1,40 +1,47 @@
-html {
-  height: 100%;
-}
-
 body {
-  display: flex;
-  font-family: 'Quicksand', sans-serif;
-  height: 100%;
-  margin: 0;
+  animation: pulsate 0.11s ease-in-out infinite alternate;
   cursor: default;
+  display: flex;
+  font-family: 'Chakra Petch', sans-serif;
+  height: 100vh;
+  margin: 0;
 }
 
 .player-1,
 .player-2 {
-  display: flex;
-  background: linear-gradient(#858, #9198e5, #9933ff);
-  flex-direction: column;
+  background: linear-gradient(#0d001a, #26004d, #400080);
   width: 25%;
-  align-items: center
+}
+
+main,
+.player-1,
+.player-2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 main {
+  background-color: black;
   width: 50%;
 }
 
 .title {
-  height: 10%;
+  margin-bottom: 10vh;
 }
 
 h1,
 .winner {
-  align-items: center;
   font-size: 95px;
-  display: flex;
   height: 100%;
-  justify-content: center;
   margin: 20px 0;
+}
+
+h1,
+.board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h2,
@@ -44,30 +51,27 @@ p {
 
 .board-container {
   align-items: center;
-  width: 100%;
-  height: 90%;
+  width: 85%;
+  height: 70%;
   display: grid;
-  grid-template-rows: 20% 20% 20%;
-  grid-template-columns: 24% 24% 24%;
+  grid-template-rows: 34% 33% 34%;
+  grid-template-columns: 34% 33% 34%;
   justify-content: center;
   align-content: center;
 }
 
 .board {
-  display: flex;
   font-size: 150px;
-  height: 100%;
-  justify-content: center;
+  height: 100%;/
   cursor: pointer;
-  align-items: center
 }
 
 .border-bottom {
-  border-bottom: 5px solid #9198e5;
+  border-bottom: 5px solid #400080;
 }
 
 .border-left {
-  border-left: 5px solid  #858;
+  border-left: 5px solid #400080;
 }
 
 .player-input{
@@ -82,17 +86,17 @@ p {
   color: #fff;
   text-shadow:
     0 0 7px #fff,
-    0 0 10px #fff,
+    0 0 1px #fff,
     0 0 21px #fff,
+    0 0 15px #ff0000,
+    0 0 30px #ff0000,
     0 0 42px #ff0000,
-    0 0 82px #ff0000,
-    0 0 92px #ff0000,
-    0 0 102px #ff0000,
-    0 0 151px #ff0000;
+    0 0 65px #ff0000,
+    0 0 100px #ff0000;
 }
 
 @keyframes pulsate {
-  90% {
+  100% {
       text-shadow:
       0 0 4px #fff,
       0 0 11px #fff,
@@ -103,7 +107,7 @@ p {
       0 0 100px #ff0000,
       0 0 150px #ff0000;
   }
-  0% {
+  3% {
     text-shadow:
     0 0 4px #fff,
     0 0 10px #fff,
