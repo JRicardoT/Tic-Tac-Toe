@@ -5,7 +5,6 @@ var winner = document.querySelector('.winner');
 var player1Wins = document.getElementById('player1Wins');
 var player2wins = document.getElementById('player2wins');
 var sections = document.querySelectorAll('.board');
-console.log(sections)
 // Event Listeners
 window.addEventListener('load', function() {
   startNewGame();
@@ -36,11 +35,10 @@ function addToken() {
     currentGame.switchTurns();
     showTurn();
   }
-  declareWinner();
+  checkCurrentGameStatus();
 };
 
 function declareWinner() {
-  currentGame.checkForWinner();
   if (currentGame.player1.winner) {
     winner.innerText = `${currentGame.player1.token} wins!`;
     hide(playerTurn);
@@ -82,6 +80,13 @@ function resetBoard() {
   hide(winner);
   show(playerTurn);
   displayWins();
+};
+
+function checkCurrentGameStatus() {
+  currentGame.checkForDraw();
+  currentGame.checkForWinner();
+  declareDraw();
+  declareWinner();
 };
 
 function show(element) {
