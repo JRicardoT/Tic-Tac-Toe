@@ -61,7 +61,7 @@ p {
 }
 
 .board {
-  font-size: 150px;
+  font-size: 15vh;
   height: 100%;/
   cursor: pointer;
 }

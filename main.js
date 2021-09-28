@@ -6,7 +6,7 @@ var player1Wins = document.getElementById('player1Wins');
 var player2wins = document.getElementById('player2wins');
 var sections = document.querySelectorAll('.board');
 // Event Listeners
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   startNewGame();
   showTurn();
   displayWins();

@@ -40,14 +40,14 @@ class Game {
 
   checkForWinner() {
     for (var i = 0; i < this.boardSections.length; i++) {
-      var player1 = this.checkForWinConditions(this.boardSections, this.player1.token);
-      var player2 = this.checkForWinConditions(this.boardSections, this.player2.token);
+      var player1Won = this.checkForWinConditions(this.boardSections, this.player1.token);
+      var player2Won = this.checkForWinConditions(this.boardSections, this.player2.token);
     }
-    if (player1) {
+    if (player1Won) {
       this.player1.winner = true;
       this.player1.wins += 1;
       return true;
-    } else if (player2) {
+    } else if (player2Won) {
       this.player2.winner = true;
       this.player2.wins += 1;
       return true;
