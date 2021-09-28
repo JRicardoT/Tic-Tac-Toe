@@ -14,8 +14,8 @@ window.addEventListener('load', function() {
 boardContainer.addEventListener('click', addToken);
 // Event Handlers
 function startNewGame() {
-  player1 = new Player('player1', '👻');
-  player2 = new Player('player2', '🎃');
+  player1 = new Player('player1', '✪');
+  player2 = new Player('player2', '✕');
   newGame = new Game(player1, player2);
   currentGame = newGame;
 };
